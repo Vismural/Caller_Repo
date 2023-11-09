@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: "call_workflow_from_other_repo"
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  Plan_Dev:
+    if: github.ref == 'refs/heads/main'
+    uses: Vismural/python-github-action-template/blob/main/.github/workflows/actions.yml@v1
+    with:
+      Input1: "stage"
+      Input2: "au"
+      Input3: "de"
+      Input4: "jp"
+      Input5: "sg"
+      Input6: "uk"
+      Input7: "us"
+      Input8: "dev"
+      Input9: "turbstage"
